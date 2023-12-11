@@ -3,10 +3,16 @@ import Header1 from "../components/Header1";
 import Header2 from "src/components/Header2";
 import Header3 from "src/components/Header3";
 import Image from "next/image";
+import Header4 from "src/components/Header4";
+import Footer from "src/components/Footer";
+import Head from "next/head";
 
 const Home = () => {
   return (
     <div>
+      <Head>
+        <title>OYO: India's best Online Hotel Booking App</title>
+      </Head>
       <Header1 />
       <Header2 />
       <Header3 />
@@ -30,6 +36,8 @@ const Home = () => {
           />
         </div>
       </div>
+      <Header4 />
+      <Footer />
     </div>
   );
 };

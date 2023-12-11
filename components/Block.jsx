@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import { FaBeer } from "react-icons/fa";
 
 const Block = ({ title, para }) => {
   return (

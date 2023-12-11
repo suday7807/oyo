@@ -1,3 +1,5 @@
+"use client";
+
 const Header3 = () => {
   return (
     <div className=" bg-gradient-to-r from-red-600 to-red-400 h-90 ">
