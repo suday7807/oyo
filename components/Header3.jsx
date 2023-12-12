@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 const Header3 = () => {
   return (
     <div className=" bg-gradient-to-r from-red-600 to-red-400 h-90 ">
@@ -25,7 +27,7 @@ const Header3 = () => {
           placeholder="Search.."
         />
         <button className=" col-span-1 h-16 px-3 py-2 bg-green-400 hover:cursor-pointer hover:bg-green-600 text-white text-xl">
-          Search
+          <Link href={"/hotels"}>Search</Link>
         </button>
       </div>
       <div className=" flex mx-20 py-4  font-bold">

@@ -14,7 +14,7 @@ const Loginn = () => {
             Hotels and homes across 800 cities, 24+ countries
           </p>
         </div>
-        <div className=" flex justify-center w-9/12 pb-40 ">
+        <div className=" mt-32 flex justify-center w-9/12 pb-40 ">
           <div>
             <p className=" text-white font-bold text-5xl text-justify">
               There’s a smarter way to OYO around
@@ -35,20 +35,28 @@ const Loginn = () => {
                 Please enter your phone number to continue
               </p>
               <input
+                type="text"
+                placeholder="Enter your name"
+                className=" outline-none border py-1 px-3 w-96 h-10 border-gray-300 my-5 rounded-sm"
+              />
+              <input
                 type="email"
                 placeholder="Enter your email..."
-                className=" outline-none border py-1 px-3 w-96 h-10 border-gray-300 rounded-sm"
+                className=" outline-none border py-1 px-3 w-96 h-10 border-gray-300 my-5 rounded-sm"
+              />
+              <input
+                type="password"
+                placeholder="Enter your password"
+                className=" outline-none border py-1 px-3 w-96 h-10 border-gray-300 my-5 rounded-sm"
               />
               <button
                 type="submit"
                 className=" h-23 w-52 py-3 mt-3 rounded-md text-xl bg-gray-400 text-white font-semibold cursor-pointer "
               >
-                Verify Email
+                Sign Up
               </button>
               <div className=" text-xl font-bold flex m-5 w-[100%] ">
-                <p className=" mr-2">
-                  Prefer to Sign in with password instead?
-                </p>
+                <p className=" mr-2">Already have an account?</p>
 
                 <button className=" cursor-pointer text-red-600">
                   Click here
