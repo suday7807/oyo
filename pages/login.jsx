@@ -1,7 +1,28 @@
-import Head from "next/head";
-import React from "react";
+"use client";
 
-const Loginn = () => {
+import Head from "next/head";
+import React, { useState } from "react";
+import axios from "axios";
+
+const Login = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [login, setLogin] = useState(false);
+
+  const handleSignUp = () => {};
+  const handleLogin = async () => {
+    const res = await axios.post("/api/user/login", {
+      email,
+      password,
+    });
+    if (res) {
+      console.log(res);
+    }
+  };
+  const handleToogle = () => {
+    setLogin(!login);
+  };
   return (
     <div className="">
       <Head>
@@ -34,32 +55,46 @@ const Loginn = () => {
               <p className=" font-bold text-lg mb-1">
                 Please enter your phone number to continue
               </p>
-              <input
-                type="text"
-                placeholder="Enter your name"
-                className=" outline-none border py-1 px-3 w-96 h-10 border-gray-300 my-5 rounded-sm"
-              />
+              {login ? (
+                ""
+              ) : (
+                <input
+                  type="name"
+                  placeholder="Enter your name"
+                  className=" outline-none border py-1 px-3 w-96 h-10 border-gray-300 my-5 rounded-sm"
+                  onChange={(e) => setName(e.target.value)}
+                />
+              )}
               <input
                 type="email"
                 placeholder="Enter your email..."
                 className=" outline-none border py-1 px-3 w-96 h-10 border-gray-300 my-5 rounded-sm"
+                onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 type="password"
                 placeholder="Enter your password"
                 className=" outline-none border py-1 px-3 w-96 h-10 border-gray-300 my-5 rounded-sm"
+                onChange={(e) => setPassword(e.target.value)}
               />
               <button
                 type="submit"
                 className=" h-23 w-52 py-3 mt-3 rounded-md text-xl bg-gray-400 text-white font-semibold cursor-pointer "
+                onClick={login ? handleLogin : handleSignUp}
               >
-                Sign Up
+                {login ? "Login" : "Sign Up"}
               </button>
               <div className=" text-xl font-bold flex m-5 w-[100%] ">
-                <p className=" mr-2">Already have an account?</p>
+                <p className=" mr-2">
+                  {" "}
+                  {login ? "Don't have a account" : "Already have an account?"}
+                </p>
 
-                <button className=" cursor-pointer text-red-600">
-                  Click here
+                <button
+                  className=" cursor-pointer text-red-600"
+                  onClick={handleToogle}
+                >
+                  {login ? "Sign Up" : "Login"}
                 </button>
               </div>
             </div>
@@ -70,4 +105,4 @@ const Loginn = () => {
   );
 };
 
-export default Loginn;
+export default Login;
