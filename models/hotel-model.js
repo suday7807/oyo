@@ -6,7 +6,6 @@ const hotelSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-      unique: true,
     },
     description: {
       type: String,
@@ -36,4 +35,6 @@ const hotelSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default Hotel = mongoose.model("Hotel", hotelSchema);
+const Hotel = mongoose.model("Hotel", hotelSchema);
+
+export default Hotel;
