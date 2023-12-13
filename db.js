@@ -5,7 +5,7 @@ const connectDB = () => {
     .connect("mongodb://localhost:27017", {
       dbName: "OYO",
       useNewUrlParser: true,
-      useUnifiendTopology: true,
+      useUnifiedTopology: true,
     })
     .then(() => console.log("Database connected"))
     .catch((e) => console.log(e));
