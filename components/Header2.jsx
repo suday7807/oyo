@@ -16,7 +16,7 @@ const Header2 = () => {
       name: "Himachal",
     },
     {
-      name: "Banglore",
+      name: "Panjab",
     },
   ];
   return (

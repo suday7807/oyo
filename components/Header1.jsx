@@ -2,8 +2,19 @@ import Image from "next/image";
 import React from "react";
 import Block from "./Block";
 import Link from "next/link";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 
 const Header1 = () => {
+  let auth;
+  if (typeof window !== "undefined") {
+    auth = Cookies.get("user");
+  }
+  const router = useRouter();
+  const handleLogout = () => {
+    Cookies.remove("user");
+    router.push("/");
+  };
   return (
     <div className=" flex h-24 border-b-2 px-3 border-gray-300 justify-between ">
       <Image
@@ -26,9 +37,15 @@ const Header1 = () => {
             height={200}
             className="w-10 h-10 rounded-full mr-5"
           />
-          <Link href={"/loginn"}>
-            <h3 className=" font-bold">Login / Signup</h3>
-          </Link>
+          {auth ? (
+            <h3 className=" cursor-pointer font-bold" onClick={handleLogout}>
+              Logout
+            </h3>
+          ) : (
+            <Link href={"/login"}>
+              <h3 className=" font-bold">Login / Signup</h3>
+            </Link>
+          )}
         </div>
       </div>
     </div>

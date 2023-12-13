@@ -3,6 +3,8 @@
 import Head from "next/head";
 import React, { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 
 const Login = () => {
   const [name, setName] = useState("");
@@ -10,14 +12,29 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
 
-  const handleSignUp = () => {};
+  const router = useRouter();
+
+  const handleSignUp = async () => {
+    const res = await axios.post("/api/user/register", {
+      name,
+      email,
+      password,
+    });
+    if (res?.data) {
+      Cookies.set("user", res.data.token);
+      alert(res.data.msg);
+      router.push("/");
+    }
+  };
   const handleLogin = async () => {
     const res = await axios.post("/api/user/login", {
       email,
       password,
     });
-    if (res) {
-      console.log(res);
+    if (res?.data) {
+      Cookies.set("user", res.data.token);
+      alert(res.data.msg);
+      router.push("/");
     }
   };
   const handleToogle = () => {
