@@ -6,10 +6,12 @@ const hotelSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
+      unique: true,
     },
     description: {
       type: String,
       required: true,
+      trim: true,
     },
     banner: {
       type: String,
@@ -26,15 +28,14 @@ const hotelSchema = new mongoose.Schema(
     facilities: [
       {
         img: String,
-      },
-      {
         name: String,
       },
     ],
+    location: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
 
-const Hotel = mongoose.model("Hotel", hotelSchema);
-
-export default Hotel;
+export default mongoose.models?.hotel || mongoose.model("hotel", hotelSchema);

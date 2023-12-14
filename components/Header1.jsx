@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import Block from "./Block";
 import Link from "next/link";
 import Cookies from "js-cookie";
@@ -7,9 +7,9 @@ import { useRouter } from "next/router";
 
 const Header1 = () => {
   let auth;
-  if (typeof window !== "undefined") {
+  useEffect(() => {
     auth = Cookies.get("user");
-  }
+  }, []);
   const router = useRouter();
   const handleLogout = () => {
     Cookies.remove("user");
