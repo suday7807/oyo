@@ -12,26 +12,26 @@ const Header3 = () => {
           Lorem ipsum dolor sit amet consectetur, adipisicing elit.
         </h1>
       </div>
-      <div className=" grid grid-cols-5 my-5 mx-20">
+      <div className=" grid grid-cols-12 my-5 mx-20">
         <input
           type="text"
-          className=" col-span-2 h-16 outline-none px-3 text-lg border-r-2 border-gray-400 "
+          className=" col-span-10 h-16 outline-none px-3 text-lg border-r-2 border-gray-400 "
           placeholder="Search.."
           onChange={(e) => {
             setCity(e.target.value);
           }}
         />
-        <input
-          type="text"
+        {/* <input
+          type="date"
           className=" col-span-1 h-16 outline-none px-3 text-lg border-r-2 border-gray-400 "
           placeholder="Search.."
         />
         <input
-          type="text"
+          type="date"
           className=" col-span-1 h-16 outline-none px-3 text-lg border-r-2 border-gray-400 "
           placeholder="Search.."
-        />
-        <button className=" col-span-1 h-16 px-3 py-2 bg-green-400 hover:cursor-pointer hover:bg-green-600 text-white text-xl">
+        /> */}
+        <button className=" col-span-2 h-16 px-3 py-2 bg-green-400 hover:cursor-pointer hover:bg-green-600 text-white text-xl">
           <Link href={`/hotels?city=${city}`}>Search</Link>
         </button>
       </div>

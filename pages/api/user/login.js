@@ -19,7 +19,7 @@ export default async function Login(req, res) {
     if (!isMatched) {
       return res.status(400).json({ msg: "Wrong username or password" });
     }
-    const token = jwt.sign({ user: user._id }, "Code_US", {
+    const token = jwt.sign({ user: user._id }, process.env.JWT_SECRET, {
       expiresIn: "30d",
     });
     return res.status(201).json({ msg: "Login successfully", token });

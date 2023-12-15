@@ -61,7 +61,7 @@ const Hotel = ({ e }) => {
               {e?.price}
             </button>
             <Link
-              href={"/hotels/1"}
+              href={`/hotels/${e?._id}`}
               className=" font-semibold text-xl text-red-500"
             >
               See Details

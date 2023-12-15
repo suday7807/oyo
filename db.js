@@ -1,8 +1,10 @@
 import mongoose from "mongoose";
 
+const URI = process.env.MONGO_URI;
+
 const connectDB = () => {
   mongoose
-    .connect("mongodb://localhost:27017", {
+    .connect(URI, {
       dbName: "OYO",
       useNewUrlParser: true,
       useUnifiedTopology: true,
