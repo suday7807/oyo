@@ -23,7 +23,7 @@ const Login = () => {
     if (res?.data) {
       Cookies.set("user", res.data.token, { expires: 7 });
       alert(res.data.msg);
-      router.push("/");
+      router.back();
     }
   };
   const handleLogin = async () => {
@@ -34,7 +34,7 @@ const Login = () => {
     if (res?.data) {
       Cookies.set("user", res.data.token, { expires: 7 });
       alert(res.data.msg);
-      router.push("/");
+      router.back();
     }
   };
   const handleToogle = () => {

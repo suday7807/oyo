@@ -7,18 +7,22 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 
 const Header1 = () => {
-  const [auth, setauth] = useState(false);
+  const [auth, setAuth] = useState(false);
 
   useEffect(() => {
     const key = Cookies.get("user");
-    setauth(true);
+    if (key) {
+      setAuth(true);
+      return;
+    }
+    setAuth(false);
   }, [auth]);
 
   const router = useRouter();
 
   const handleLogout = () => {
     Cookies.remove("user");
-    setauth(false);
+    setAuth(false);
     router.push("/");
   };
   return (

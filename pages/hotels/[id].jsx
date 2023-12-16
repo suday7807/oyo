@@ -2,8 +2,14 @@
 import Image from "next/image";
 import React from "react";
 import Head from "next/head";
+import Cookies from "js-cookie";
+import Link from "next/link";
 
 const SingleHotel = ({ hotel }) => {
+  let auth;
+  if (typeof window !== "undefined") {
+    auth = Cookies.get("user");
+  }
   return (
     <>
       <Head>
@@ -46,9 +52,19 @@ const SingleHotel = ({ hotel }) => {
                 })
               : ""}
           </ul>
-          <button className=" mr-6 my-5 mt-3 w-60 h-14 font-bold  text-lg bg-red-600 rounded-lg">
-            Book Now
-          </button>
+          {auth ? (
+            <button className=" mr-6 my-5 mt-3 w-60 h-14 font-bold  text-lg bg-red-600 rounded-lg">
+              Book Now
+            </button>
+          ) : (
+            <span className=" text-2xl">
+              Please{" "}
+              <Link href={"/login"} className=" text-blue-500">
+                Log in
+              </Link>{" "}
+              to get new offers
+            </span>
+          )}
         </div>
       </div>
     </>
