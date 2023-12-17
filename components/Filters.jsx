@@ -2,7 +2,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Filters = ({ price, setPrice, handlePrice }) => {
+const Filters = ({
+  price,
+  setPrice,
+  handlePrice,
+  checkedList,
+  setCheckedList,
+}) => {
   const [list, setList] = useState([]);
   const fetchFacilities = async () => {
     try {
@@ -14,6 +20,18 @@ const Filters = ({ price, setPrice, handlePrice }) => {
       console.log(error);
     }
   };
+
+  const handleCheckList = (e) => {
+    let newList = [];
+    if (e.target.checked) {
+      newList.push(e.target.value);
+      setCheckedList(newList);
+      return;
+    }
+    newList = newList.filter((i) => i !== e.target.value);
+    setCheckedList(newList);
+  };
+
   useEffect(() => {
     fetchFacilities();
   }, []);
@@ -52,7 +70,9 @@ const Filters = ({ price, setPrice, handlePrice }) => {
                 type="checkbox"
                 name="checkbox"
                 id="checkbox"
+                value={e}
                 className=" w-5 h-5 ml-5 col-span-1"
+                onChange={handleCheckList}
               />
             </p>
           );
